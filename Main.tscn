@@ -1,38 +1,28 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Car.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://FloorPlacer.gd" type="Script" id=2]
 [ext_resource path="res://FloorPanel.tscn" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.224144, 0.5, -0.836516, -0.12941, 0.866025, 0.482963, 0.965926, 0, 0.258819, 0, 2.84527, 0 )
-light_color = Color( 1, 0.839216, 0.498039, 1 )
+light_color = Color( 0.8, 0.905882, 1, 1 )
 light_energy = 2.0
 shadow_enabled = true
-shadow_color = Color( 0.176471, 0.25098, 0.666667, 1 )
+shadow_color = Color( 0.180392, 0.25098, 0.431373, 1 )
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7.32326, 11.4024, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32326, 11.4024, 0 )
 
 [node name="Camera" type="Camera" parent="Car"]
-transform = Transform( 1, 0, 0, 0, 0.802165, 0.597102, 0, -0.597102, 0.802165, 0, 2.981, 2.415 )
+transform = Transform( -1, 5.22008e-008, -7.01272e-008, 0, 0.802161, 0.597107, 8.74228e-008, 0.597107, -0.802161, 0.424349, 1.72227, -1.782 )
 fov = 90.0
 
-[node name="Tree" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.998803, 4, 0.225729 )
-
-[node name="Tree2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32318, 4, 2.18466 )
-
-[node name="Tree3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75638, 4, 4.05117 )
-
-[node name="Tree4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72048, 4, -0.0375686 )
-
 [node name="FloorPlacer" type="Spatial" parent="."]
+script = ExtResource( 2 )
+car_path = NodePath("../Car")
 
 [node name="FloorPanel" parent="FloorPlacer" instance=ExtResource( 3 )]
 
