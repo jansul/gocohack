@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.517647, 0.372549, 0.239216, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.211765, 0.862745, 0.298039, 1 )
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.5
+height = 10.0
+
+[node name="Tree" type="RigidBody"]
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+radius = 0.5
+height = 10.0
+cone = true
+smooth_faces = false
+material = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.22674, 0 )
+radius = 0.572
+height = 1.385
+cone = true
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.91862, 0 )
+height = 2.558
+cone = true
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02551, 0 )
+radius = 1.71
+height = 3.345
+cone = true
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.872672, 0 )
+radius = 2.237
+height = 3.825
+cone = true
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0 )
