@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FloorPlacer.gd" type="Script" id=2]
@@ -20,6 +20,12 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 5 )
 
+[sub_resource type="InputEventAction" id=5]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
 [sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 0.454902 )
@@ -36,11 +42,12 @@ font_data = ExtResource( 5 )
 [node name="Spatial" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.224144, 0.5, -0.836516, -0.12941, 0.866025, 0.482963, 0.965926, 0, 0.258819, 0, 2.84527, 0 )
+transform = Transform( 0.456663, 0.394021, -0.797626, 0, 0.896571, 0.442899, 0.88964, -0.202256, 0.409431, 0, 4.755, 14.289 )
 light_color = Color( 0.8, 0.905882, 1, 1 )
 light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.180392, 0.25098, 0.431373, 1 )
+directional_shadow_max_distance = 100.0
 
 [node name="Car" parent="." groups=[
 "Cars",
@@ -104,6 +111,7 @@ margin_top = 5.40363
 margin_right = 83.5
 margin_bottom = 61.4036
 custom_fonts/font = SubResource( 4 )
+shortcut = SubResource( 6 )
 text = "Play Again"
 
 [node name="Hud" type="Control" parent="Control"]

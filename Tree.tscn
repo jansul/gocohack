@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tree.gd" type="Script" id=1]
+[ext_resource path="res://Models/Tree/Tree.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.517647, 0.372549, 0.239216, 1 )
@@ -28,6 +29,7 @@ collision_layer = 17
 
 [node name="CSGCylinder" type="CSGCylinder" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
 radius = 0.5
 height = 10.0
 cone = true
@@ -36,6 +38,7 @@ material = SubResource( 1 )
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.22674, 0 )
+visible = false
 radius = 0.572
 height = 1.385
 cone = true
@@ -44,6 +47,7 @@ material = SubResource( 2 )
 
 [node name="CSGCylinder3" type="CSGCylinder" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91862, 0 )
+visible = false
 height = 2.558
 cone = true
 smooth_faces = false
@@ -51,6 +55,7 @@ material = SubResource( 2 )
 
 [node name="CSGCylinder4" type="CSGCylinder" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02551, 0 )
+visible = false
 radius = 1.71
 height = 3.345
 cone = true
@@ -59,6 +64,7 @@ material = SubResource( 2 )
 
 [node name="CSGCylinder5" type="CSGCylinder" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127328, 0 )
+visible = false
 radius = 2.237
 height = 3.825
 cone = true
@@ -71,6 +77,9 @@ shape = SubResource( 3 )
 
 [node name="PushPoint" type="Position3D" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.16623, 0 )
+
+[node name="Tree" parent="RigidBody" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.00322, 0 )
 
 [node name="Detector" type="Area" parent="."]
 collision_layer = 2

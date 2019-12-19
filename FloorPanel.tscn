@@ -98,39 +98,40 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
 
 [node name="FakeTrees" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="FakeTreesGroup1" type="Spatial" parent="FakeTrees"]
 editor/display_folded = true
 
 [node name="FakeTree" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( 0.908187, 0, -0.418565, 0, 1, 0, 0.418565, 0, 0.908187, 18.5746, 0.00946903, 2.97056 )
+transform = Transform( 0.908187, 0, -0.418565, 0, 1, 0, 0.418565, 0, 0.908187, 14.1187, -0.478997, 2.97056 )
 
 [node name="FakeTree7" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( -0.999206, 0, -0.0398469, 0, 1, 0, 0.0398469, 0, -0.999206, 15.7762, 0.00946903, -4.80773 )
+transform = Transform( -0.999206, 0, -0.0398469, 0, 1, 0, 0.0398469, 0, -0.999206, 13.2757, 0.00946903, -4.56209 )
 
 [node name="FakeTree2" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( 0.802549, 0, 0.596587, 0, 1, 0, -0.596587, 0, 0.802549, 18.3588, 0.00946903, -0.301772 )
+transform = Transform( 0.802549, 0, 0.596587, 0, 1, 0, -0.596587, 0, 0.802549, 12.5911, 0.00946903, -0.301772 )
 
 [node name="FakeTree6" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( -0.443799, 0, -0.896127, 0, 1, 0, 0.896127, 0, -0.443799, 17.8251, 0.00946903, -2.17941 )
+transform = Transform( -0.443799, 0, -0.896127, 0, 1, 0, 0.896127, 0, -0.443799, 17.8866, 0.00946903, -2.17941 )
 
 [node name="FakeTree3" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
 transform = Transform( 0.491, 0, 0.871159, 0, 0.934139, 0, -0.813784, 0, 0.458663, 16.8287, 0.00946903, 1.70707 )
 
 [node name="FakeTree8" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( -0.0675764, 0, -0.984443, 0, 0.934139, 0, 0.948029, 0, -0.0126981, 17.9055, 0.00946903, -4.47559 )
+transform = Transform( -0.0675764, 0, -0.984443, 0, 0.934139, 0, 0.948029, 0, -0.0126981, 15.2564, -0.266419, -3.52607 )
 
 [node name="FakeTree4" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.961879, 0, 0, 0, 0.961879, 16.1969, 0.00946903, 4.09409 )
+transform = Transform( 1, 0, 0, 0, 0.961879, 0, 0, 0, 0.961879, 12.3377, 0.00946903, 5.09591 )
 
 [node name="FakeTree9" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( -0.890787, 0, -0.437098, 0, 0.961879, 0, 0.454421, 0, -0.85683, 18.5575, 0.032383, 4.94369 )
+transform = Transform( -0.890787, 0, -0.437098, 0, 0.961879, 0, 0.454421, 0, -0.85683, 16.1314, 0.032383, 4.94369 )
 
 [node name="FakeTree5" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
 transform = Transform( 0.911822, 0, 0.477127, 0, 0.896311, 0, -0.415557, 0, 0.794157, 16.1969, 0.00946903, -0.762859 )
 
 [node name="FakeTree10" parent="FakeTrees/FakeTreesGroup1" instance=ExtResource( 2 )]
-transform = Transform( -0.623401, 0, -0.785901, 0, 0.896311, 0, 0.784524, 0, -0.490608, 20.0456, 0.00946903, -3.21581 )
+transform = Transform( -0.623401, 0, -0.785901, 0, 0.896311, 0, 0.784524, 0, -0.490608, 18.3697, 0.00946903, 3.97662 )
 
 [node name="FakeTreesGroup2" type="Spatial" parent="FakeTrees"]
 editor/display_folded = true
