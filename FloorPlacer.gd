@@ -8,7 +8,7 @@ var floor_panels = []
 var floor_width = 10.0
 var car : Spatial
 
-func _ready():	
+func _ready():		
 	car = get_node(car_path)
 	for floor_panel in get_children():
 		floor_panels.append(floor_panel)

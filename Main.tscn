@@ -1,8 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FloorPlacer.gd" type="Script" id=2]
 [ext_resource path="res://FloorPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hud.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/GoCoHeadlineWeb-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Models/Deer/Deer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.454902 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.454902 )
+use_filter = true
+font_data = ExtResource( 5 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -13,11 +42,13 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.180392, 0.25098, 0.431373, 1 )
 
-[node name="Car" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32326, 11.4024, 0 )
+[node name="Car" parent="." groups=[
+"Cars",
+] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04892, 0 )
 
 [node name="Camera" type="Camera" parent="Car"]
-transform = Transform( -1, 5.22008e-008, -7.01272e-008, 0, 0.802161, 0.597107, 8.74228e-008, 0.597107, -0.802161, 0.424349, 1.72227, -1.782 )
+transform = Transform( -1, -4.44926e-008, 7.52539e-008, 0, 0.860804, 0.508936, -8.74228e-008, 0.508936, -0.860804, 0, 1.791, -2.162 )
 fov = 90.0
 
 [node name="FloorPlacer" type="Spatial" parent="."]
@@ -37,3 +68,84 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
 
 [node name="FloorPanel5" parent="FloorPlacer" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+car_path = NodePath("../Car")
+
+[node name="Game Over" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Game Over Text" type="Label" parent="Control/Game Over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -273.5
+margin_top = -162.259
+margin_right = 273.5
+margin_bottom = 49.7412
+rect_pivot_offset = Vector2( 37, 19.5 )
+custom_fonts/font = SubResource( 3 )
+text = "You crashed"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Control/Game Over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.5
+margin_top = 5.40363
+margin_right = 83.5
+margin_bottom = 61.4036
+custom_fonts/font = SubResource( 4 )
+text = "Play Again"
+
+[node name="Hud" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -477.0
+margin_top = -92.0
+margin_right = 477.0
+
+[node name="Distance Label" type="Label" parent="Control/Hud"]
+margin_right = 122.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "Distance"
+
+[node name="Distance Value" type="Label" parent="Control/Hud"]
+margin_top = 19.0
+margin_right = 122.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 37, 19.5 )
+custom_fonts/font = SubResource( 2 )
+text = "100m"
+
+[node name="Speed Label" type="Label" parent="Control/Hud"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -122.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "Speed"
+
+[node name="Speed Value" type="Label" parent="Control/Hud"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -122.0
+margin_top = 19.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+text = "100"
+
+[node name="Deer" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594443, 0.371407, 24.8483 )
+[connection signal="pressed" from="Control/Game Over/Button" to="Control" method="_on_Button_pressed"]

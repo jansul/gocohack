@@ -1,38 +1,40 @@
 extends StaticBody
 
 var tree = preload("res://Tree.tscn")
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var deer = preload("res://Models/Deer/Deer.tscn")
 
-# Called when the node enters the scene tree for the first time.
+const MIN_TREES = 0
+const MAX_TREES = 2
+
+const MIN_DEER = 0
+const MAX_DEER = 2
+
+
 func _ready():
 	recreate()
-
-const MIN_TREES = 1
-const MAX_TREES = 5
 
 func recreate():
 	for child in $Trees.get_children():
 		child.queue_free()
+	for child in $Deers.get_children():
+		child.queue_free()
+		
+	randomize()
 	
 	var tree_count = randi() % MAX_TREES + MIN_TREES
-	print(tree_count)
 	for index in range(0, tree_count):
 		var total_locations = $TreeSpawnLocations.get_child_count()
 		var position = $TreeSpawnLocations.get_children()[randi() % total_locations]
 		var instance = tree.instance()
 		instance.translation = position.translation
-		instance.translation.y = 3
-		add_child(instance)
-			
-		
+		instance.translation.y = 4.5
+		$Trees.add_child(instance)
 
-
-	
-	
-	print('recreate')
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	var deer_count = randi() % MAX_TREES + MIN_TREES
+	for index in range(0, deer_count):
+		var total_locations = $DeerSpawnLocations.get_child_count()
+		var position = $DeerSpawnLocations.get_children()[randi() % total_locations]
+		var instance = deer.instance()
+		instance.translation = position.translation
+		instance.rotation_degrees.y = randi() % 360
+		$Deers.add_child(instance)
